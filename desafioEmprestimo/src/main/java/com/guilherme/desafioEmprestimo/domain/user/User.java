@@ -25,6 +25,15 @@ public class User {
     @Column(unique = true)
     private String document;
     private BigDecimal income;
+    @Embedded
     private LocationDTO location;
 
+    public User(UserDTO data) {
+        this.firtsName = data.firtsName();
+        this.lastName = data.lastName();
+        this.age = data.age();
+        this.document = data.document();
+        this.income = data.income();
+        this.location = data.location();
+    }
 }
